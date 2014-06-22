@@ -39,14 +39,13 @@ Tutorial (How to set up a simple master server)
 9. At this point, running `./wtvmaster -p 10384 -P 8888` should work. The recorder should be able to connect to the server on port 10384, and a client should be able to connect on port 8888.
 10. Run `mysql -u root` to set up the database:
 
-    # Create the database
     CREATE DATABASE `wtvmaster`;
     USE `wtvmaster`;
-    # Create the user
+
     CREATE USER 'wtvmaster'@'localhost' IDENTIFIED BY 'defaultpass';
     GRANT ALL PRIVILEGES ON wtvmaster.* TO 'wtvmaster'@'%';
     FLUSH PRIVILEGES;
-    # Create the games table
+
     DROP TABLE IF EXISTS `Game`;
     CREATE TABLE `Game` (
       `id` int(11) NOT NULL,
@@ -65,7 +64,7 @@ Tutorial (How to set up a simple master server)
       `checksum` varchar(255) default NULL,
       PRIMARY KEY  (`id`)
     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-    # Create the users table
+
     DROP TABLE IF EXISTS `Users`;
     CREATE TABLE `Users` (
       `id` int(11) NOT NULL,
@@ -74,7 +73,7 @@ Tutorial (How to set up a simple master server)
       PRIMARY KEY  (`id`),
       UNIQUE KEY `name` (`name`)
     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-    # Add a test user
+
     INSERT INTO Users(id, name, password) VALUES (0, 'testuser', 'testpass');
   
 At this point, the recorder should be able to connect to the server on port 10384 and log in with the login testuser:testpass.
