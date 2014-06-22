@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="net.volcore.wtvmaster.game.Game">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="status">
+            <column name="status" index="StatusIndex"/>
+        </property>
+        <property name="date">
+            <column name="date" index="DateIndex"/>
+        </property>
+        <property name="name"/>
+        <property name="organisation"/>
+        <property name="certified">
+            <column name="certified" index="CertifiedIndex"/>
+        </property>
+        <property name="comment"/>
+        <property name="streamer"/>
+        <property name="gameLength"/>
+        <property name="numPackets"/>
+        <property name="delay"/>
+        <property name="lastSeed"/>
+        <property name="path"/>
+        <property name="checksum">
+            <column name="checksum" index="GameChecksum"/>
+        </property>
+    </class>
+</hibernate-mapping>
+
+

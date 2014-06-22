@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<project name="wtvcache" default="compile">
+	
+	<path id="classpath">
+		<fileset dir="lib">
+    		<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<property name="src.dir" value="src"/>
+	<property name="jarfile" value="net-volcore-wtvcache.jar"/>
+	<property name="debug" value="Yes"/>
+
+	<target name="compile">
+		<javac source="1.5" target="1.5" encoding="utf8" debug="${debug}" destdir="bin">
+			<classpath refid="classpath"/>
+			<src path="${src.dir}"/>
+		</javac>
+	</target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jarfile}" basedir="bin" includes="**/*.class *.properties" excludes="">
+            <manifest>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+    	<delete dir="bin/" includes="**/*.class"/>
+    </target>
+	
+	<target name="javadoc">
+		<mkdir dir="javadoc"/>
+		<javadoc destdir="javadoc" private="true">
+			<classpath ref-id="classpath"/>
+			<fileset
+				dir="${src.dir}"
+				includes="*/**.java"
+			/>
+		</javadoc>
+	</target>
+	
+</project>

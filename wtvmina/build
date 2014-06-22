@@ -1,0 +1,8 @@
+#!/bin/bash
+MAJOR=`grep major src/net/volcore/wtvmina/Version.java | awk '{ print $7; }'`
+MINOR=`grep minor src/net/volcore/wtvmina/Version.java | awk '{ print $7; }'`
+RELEASE=`grep release src/net/volcore/wtvmina/Version.java | awk '{ print $7; }'`
+
+ant jar &&
+cp net-volcore-wtvmina.jar net-volcore-wtvmina-$MAJOR.$MINOR.$RELEASE.jar &&
+echo "Built net-volcore-wtvmina-$MAJOR.$MINOR.$RELEASE.jar"

@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<project name="wtvmina" default="compile">
+	
+	<path id="classpath">
+		<fileset dir="lib">
+    		<include name="*.jar"/>
+		</fileset>
+	</path>
+
+    <path id="testclasspath">
+        <path refid="classpath"/>
+        <pathelement location="bin"/>
+    </path>
+
+	<property name="src.dir" value="src"/>
+	<property name="src.testdir" value="unittests"/>
+	<property name="jarfile" value="net-volcore-wtvmina.jar"/>
+	<property name="debug" value="Yes"/>
+
+	<target name="compile">
+		<javac source="1.5" target="1.5" encoding="utf8" debug="${debug}" destdir="bin">
+			<classpath refid="classpath"/>
+			<src path="${src.dir}"/>
+		</javac>
+	</target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jarfile}" basedir="bin" includes="**/*.class" excludes="">
+            <manifest>
+            </manifest>
+        </jar>
+    </target>
+
+	<target name="compileTests">
+		<javac source="1.5" target="1.5" encoding="utf8" debug="${debug}" destdir="bin">
+			<classpath refid="classpath"/>
+			<src path="${src.testdir}"/>
+		</javac>
+	</target>
+
+    <target name="runTests" depends="compile, compileTests">
+        <junit printsummary="yes" fork="yes" haltonfailure="yes">
+            <formatter type="plain"/>
+            <classpath refid="testclasspath"/>
+            <test name="net.volcore.fiber.AllTests" />
+        </junit>
+    </target>
+
+    <target name="clean">
+    	<delete dir="bin/" includes="**/*.class"/>
+    </target>
+	
+	<target name="javadoc">
+		<mkdir dir="javadoc"/>
+		<javadoc destdir="javadoc" private="true">
+			<classpath ref-id="classpath"/>
+			<fileset
+				dir="${src.dir}"
+				includes="*/**.java"
+			/>
+		</javadoc>
+	</target>
+	
+</project>

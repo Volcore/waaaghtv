@@ -1,0 +1,2 @@
+#!/bin/sh
+touch wtvmaster.log && rm wtvmaster.log* && ./build && ./wtvmaster -p 10384 -P 13383

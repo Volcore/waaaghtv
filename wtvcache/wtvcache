@@ -1,0 +1,13 @@
+#!/bin/sh
+
+CP=bin
+# Change to the following line if running from a jar (eg. on the server)
+#CP=net-volcore-wtvcache.jar
+
+for l in `ls lib`
+do
+    CP=$CP:lib/$l
+done
+
+java -Xmx2000m -server -cp "$CP" net.volcore.wtvcache.WTVCache "$@"
+

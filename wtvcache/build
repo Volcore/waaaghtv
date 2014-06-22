@@ -1,0 +1,10 @@
+#!/bin/bash
+NAME=wtvcache
+MAJOR=`grep major src/net/volcore/$NAME/VersionInfo.java | awk '{ print $7; }'`
+MINOR=`grep minor src/net/volcore/$NAME/VersionInfo.java | awk '{ print $7; }'`
+RELEASE=`grep release src/net/volcore/$NAME/VersionInfo.java | awk '{ print $7; }'`
+SPECIAL=`grep special src/net/volcore/$NAME/VersionInfo.java | awk '{ print $8; }'`
+
+ant jar &&
+cp net-volcore-$NAME.jar net-volcore-$NAME-$MAJOR.$MINOR.$RELEASE-$SPECIAL.jar &&
+echo "Built net-volcore-$NAME-$MAJOR.$MINOR.$RELEASE-$SPECIAL.jar"

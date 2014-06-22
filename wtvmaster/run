@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while [ true ]; do
+
+        ./wtvmaster -p 10384 -P 8888
+
+        echo ""
+        echo ""
+        echo "======================================================"
+        echo "Sleeping for 10 seconds until restarting the server..."
+        sleep 10
+        echo "done!"
+        echo "======================================================"
+done
+

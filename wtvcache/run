@@ -1,0 +1,3 @@
+#!/bin/sh
+MASTER_SERVER=127.0.0.1:8888
+touch wtvcache.log && rm wtvcache.log* && ./wtvcache -p 10383 -m $MASTER_SERVER 

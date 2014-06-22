@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /home/volker/wtvmaster
+
+if ps x | grep -i "wtvmaster" | grep -i "screen" > /dev/null; then
+        true;
+else
+        screen -dmS wtvmaster bash ./run
+fi
+
