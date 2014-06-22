@@ -21,3 +21,8 @@ wtvcaches usually run on port 10383, which is the Waaagh!TV client default port.
 Simple Setup
 ------------
 The simplest setup would be to just run a wtvmaster server on port 10384 (uploaders) and 10383 (clients), and connect it to a small local MySQL database. I've added a sample scheme for the database that should be sufficient to create the necessary tables.
+
+Tutorial (How to set up a simple master server)
+-----------------------------------------------
+1. Install a clean Ubuntu machine (in this case 14.04). In this case, the machine name is wtv, as well as the username.
+2. 

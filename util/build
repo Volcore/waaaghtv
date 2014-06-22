@@ -1,0 +1,8 @@
+#!/bin/bash
+MAJOR=`grep major src/net/volcore/util/VersionInfo.java | awk '{ print $7; }'`
+MINOR=`grep minor src/net/volcore/util/VersionInfo.java | awk '{ print $7; }'`
+RELEASE=`grep release src/net/volcore/util/VersionInfo.java | awk '{ print $7; }'`
+
+ant jar &&
+cp net-volcore-util.jar net-volcore-util-$MAJOR.$MINOR.$RELEASE.jar &&
+echo "Built net-volcore-util-$MAJOR.$MINOR.$RELEASE.jar"
