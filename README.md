@@ -5,6 +5,10 @@ After almost 10 years of service, the official Waaagh!TV server was shut down du
 
 I've decided to release all the server code to the public, so that anyone interested can go in and set up a new server.
 
+Cheers,
+Volker
+volker@limbic.com
+
 
 Subprojects
 -----------
