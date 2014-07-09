@@ -137,10 +137,10 @@ public class WTVMaster implements Runnable, Stoppable
                     logger.info( "Starting up..." );
 
                     /** Initialize the database connections. */
-                        //userDB.createUser( "volcore", "nopass" );
-                        userDB = new RemoteUserDatabase(
-                                "http://www.waaaghtv.com/en/user/json/canupload/",
-                                "http://www.waaaghtv.com/en/user/json/affiliatecheck/" );
+                        //userDB = new RemoteUserDatabase(
+                                //"http://www.myserver.com/canupload",
+                                //"http://www.myserver.com/affiliatecheck" );
+                        userDB = new HibernateUserDatabase();
                         gameDB.fetchInitialList( );
 
                     /** Create the web acceptor */
